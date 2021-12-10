@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: simple
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: simple
+    template:
+        metadata:
+            name: simple
+            labels:
+                app: simple
+        spec:
+            containers:
+            - name: simple
+              image: yourdockerhubid/simple:latest
+              imagePullPolicy: Always # to conserve on pulling can change to not allways pull
+              env:
+              - name: RETURN_VALUE
+                value: "simple"
+              ports:
+              - name: http-port
+                containerPort: 8080
+              resources:
+                  requests:
+                      cpu: 200m

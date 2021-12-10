@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: frontend
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: frontend
+    template:
+        metadata:
+            name: frontend
+            labels:
+                app: frontend
+        spec:
+            containers:
+            - name: frontend
+              image: yourdockerhubid/fullnameapp:latest
+              imagePullPolicy: Always
+              env:
+              - name: RETURN_VALUE
+                value: "Hey my name is "
+              - name: DEPENDENCIES # Note comma delimiter services by order!
+                value: "" # TODO - you might want to add some dependecies here
+              ports:
+              - name: http-port
+                containerPort: 8080
+              resources:
+                  requests:
+                      cpu: 200m
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: frontend
+spec:
+    type: NodePort
+    selector:
+        app: frontend
+    ports:
+    - port: 8080
+      nodePort: 31002

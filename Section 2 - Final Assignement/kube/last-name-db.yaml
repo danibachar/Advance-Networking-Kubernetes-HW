@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: last-name-db
+spec:
+    # TODO - fill up the needed data!
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: last-name-db
+spec:
+    # TODO - fill up the needed data!

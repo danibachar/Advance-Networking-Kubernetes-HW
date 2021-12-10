@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: first-name-db
+spec:
+    # TODO - fill relevant spec
+---
+apiVersion: v1
+kind: Service
+metadata:
+    name: first-name-db
+spec:
+    type: NodePort
+    selector:
+        app: first-name-db
+    ports:
+    - port: 8080
+      nodePort: 31003
