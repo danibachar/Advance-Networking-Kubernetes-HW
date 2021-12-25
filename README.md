@@ -320,7 +320,7 @@ This application will depened on two others - `first-name-db` and `last-name-db`
 The `first-name-db` will return your first name (as string)
 The `last-name-db` will return your last name (as string)
 Your task is to send a GET request to the `frontend` application from the outside world, then the front end will send one GET to the `first-name-db` and one GET to the `last-name-db`, combine the result together and return string of type:
-``` Hey my name is {first name} {last name}```
+```Hey my name is {first name} {last name}```
 
 ** Bounus of 10 points to whomever decide to deploy on some cloud platform and send a working link to the application so we can access it remotely, you can get free 200$ on Google Cloud and Azure!
 
