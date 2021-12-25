@@ -80,7 +80,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 
 - Summary:
   - We got familair with the basic building blocks of Kubernetes - the `Node` and the `Data plan`, sumarized in the following image ![Kubernetes Cluster](/resources/1/module_01_cluster.svg)
-  - Kind and Docker, provides us with a local way to simulate and interact with kubernetes clusters. 
+  - Kind and Docker, provides us with a local way to simulate and interact with kubernetes clusters.
   - `kubectl` is our local client for interacting with the Kubernetes API. We can watch, get, and apply changes to Kuberenetes. the basics command we run allow us to mainly interact with the underlaying API for gathering information about the cluster. In the next few steps we wll learn more about the Kubernetes API and how to create resources and deploy applications on this system.
 
 - Submission:
@@ -216,7 +216,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
     Although each Pod has a unique IP address, those IPs are not exposed outside the cluster without a Service. Services allow your applications to receive traffic. Services can be exposed in different ways by specifying a type in the ServiceSpec:
 
     - ClusterIP (default) - Exposes the Service on an internal IP in the cluster. This type makes the Service only reachable from within the cluster.
-    - NodePort - Exposes the Service on the same port of each selected Node in the cluster using NAT. Makes a Service accessible from outside the cluster using <NodeIP>:<NodePort>. Superset of ClusterIP.
+    - NodePort - Exposes the Service on the same port of each selected Node in the cluster using NAT. Makes a Service accessible from outside the cluster using `<NodeIP>:<NodePort>`. Superset of ClusterIP.
     - LoadBalancer - Creates an external load balancer in the current cloud (if supported) and assigns a fixed, external IP to the Service. Superset of NodePort.
     - ExternalName - Maps the Service to the contents of the externalName field (e.g. foo.bar.example.com), by returning a CNAME record with its value. No proxying of any kind is set up. This type requires v1.7 or higher of kube-dns, or CoreDNS version 0.0.8 or higher.
 
@@ -266,7 +266,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
   - In the previous modules we created a Deployment, and then exposed it publicly via a Service. The Deployment created only one Pod for running our application. When traffic increases, we will need to scale the application to keep up with user demand. Scaling is accomplished by changing the number of replicas in a Deployment
   - ![Before](/resources/5/module_05_scaling1.svg)
   - ![After](/resources/5/module_05_scaling2.svg)
-  - Kubernetes also supports [autoscaling](https://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/) of Pods 
+  - Kubernetes also supports [autoscaling](https://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/) of Pods
 
 - Submission:
   - Copy the output of the curl loop we wrote in 4.4 into `/Section 1 - Basics of Kubernetes/scale-and-load-balacncing-5/curl-load-balance-output.text`
@@ -307,7 +307,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 - Submission:
   - Nothing to submit for this subseciton, you can leave the relevant folder empty
 
-* Diclaimer - the meterials here are taken from the basic [Kubernetes toturial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
+- Diclaimer - the meterials here are taken from the basic [Kubernetes toturial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)
 
 ### Final assignment
 
@@ -328,10 +328,11 @@ Your task is to send a GET request to the `frontend` application from the outsid
   - For this part take a look at the folder named `Section 2 - Final Assignment`, and lets go over it briefly so you will know what yo submit:
     - `app.py` - The application code we are going to run using Docker and Kuberenetes
     - `Dockerfile` - Docker file describing the container the applicaiton is going to run in
-    - `Makefile` - A basic build script, please take the time to explorer the file and understand how it works, because eventually our tests going to run it - using the `make test` command.
+    - `test.sh` script - will be used by the testers to make sure the application is running as expected.
+    - `Makefile` - A basic build script, please take the time to explorer the file and understand how it works, because eventually our tests going to run it - using the `test.sh` script.
     - `requirements.txt` - A requirements file is a list of all of a project’s dependencies, [read](https://realpython.com/lessons/using-requirement-files/) more about python dependencies
     - `kube` directory
       - `first-name-db`
       - `last-name-db`
       - `frontend` - The externally expose service, simple service that uses environment variable to fetch data from its dependencies (i.e first/last name dbs)
-  - Eventuall what you will need to to is update the yaml files of the different microservice to comply with the task requirements, `make test` and make sure the application works as expected.
+  - Eventuall what you will need to to is update the yaml files of the different microservice to comply with the task requirements, run `./test.sh` and make sure the application works as expected! i.e returns ```Hey my name is {first name} {last name}``` with the appropriate first and last names.
