@@ -7,7 +7,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 - Fork this repository or just clone it into a local folder
 - The repository have 2 folders, one for each section to follow. and subfolder for the subsections
 - At the end of each section/subsection you will be asked to take a screen shot / a small task to add to some folder to have proof that you went through the section and worked your way with the task.
-- You final submission will be a link to the repository you forked with the commited updates. Or a zip file containing repository
+- Your final submission will be a link to the repository you forked with the commited updates. Or a zip file containing repository
 - You can make the repository private and ivite `danibachar` and `peleg-yair` to the repository if you dan't want to expose it to the outside world.
 
 ## Basics of Kubernetes
