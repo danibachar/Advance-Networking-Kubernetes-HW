@@ -6,7 +6,6 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 
 - Fork this repository or just clone it into a local folder
 - The repository have 2 folders, one for each section to follow. and subfolder for the subsections
-- At the end of each section/subsection you will be asked to take a screen shot / a small task to add to some folder to have proof that you went through the section and worked your way with the task.
 - Your final submission **on moodle** will a zip named ex5.zip that contains the folder s1, s2 after you fill them up as described in the instructions below - make sure that you read the submission example on the ex5 moodle assignment page.
 
 ## Basics of Kubernetes
