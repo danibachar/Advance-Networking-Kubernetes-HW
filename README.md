@@ -8,7 +8,6 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 - The repository have 2 folders, one for each section to follow. and subfolder for the subsections
 - At the end of each section/subsection you will be asked to take a screen shot / a small task to add to some folder to have proof that you went through the section and worked your way with the task.
 - Your final submission will be a link to the repository you forked with the commited updates. Or a zip file containing repository
-- You can make the repository private and ivite `danibachar` and `peleg-yair` to the repository if you dan't want to expose it to the outside world.
 
 ## Basics of Kubernetes
 
@@ -84,7 +83,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
   - `kubectl` is our local client for interacting with the Kubernetes API. We can watch, get, and apply changes to Kuberenetes. the basics command we run allow us to mainly interact with the underlaying API for gathering information about the cluster. In the next few steps we wll learn more about the Kubernetes API and how to create resources and deploy applications on this system.
 
 - Submission:
-  - Nothing to submit for this subseciton, you can leave the relevant folder empty
+  - Nothing to submit for this subseciton
   
 ### 2) Using kubectl to Create a Deployment
 
@@ -121,12 +120,12 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
   - We will open a second terminal window to run the proxy.
     - Open additional Terminal, and run `kubectl proxy`
   - We now have a connection between our host (the online terminal) and the Kubernetes cluster. The proxy enables direct access to the API from these terminals.
-  - Run the command `curl http://localhost:8001/version` and past its output into `/Section 1 - Basics of Kubernetes/kubectl-deployment-2/curl-version-output.txt` - commit the changes
+  - Run the command `curl http://localhost:8001/version` and paste its output into `/s1/2/curl-version-output.txt` - commit the changes
   - The API server will automatically create an endpoint for each pod, based on the pod name, that is also accessible through the proxy. First we need to get the Pod name, and we'll store in the environment variable POD_NAME
   - Run `export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')`
   - Run `echo Name of the Pod: $POD_NAME``
   - (This command might not work on windows, in that case you can just run `kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'` and copy paste the output in the next parts)
-  - Now Run `curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/` and copy the output of the command into - `/Section 1 - Basics of Kubernetes/kubectl-deployment-2/curl-pod-details.txt` - commit the changes
+  - Now Run `curl http://localhost:8001/api/v1/namespaces/default/pods/$POD_NAME/` and copy the output of the command into - `/s1/2/curl-pod-details.txt` - commit the changes
   - Note! In order for the new deployment to be accessible without using the Proxy, a Service is required which will be explained in the next modules.
 
 ### 3) Viewing Pods and Nodes
@@ -170,9 +169,9 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
     - `kubectl exec` - execute a command on a container in a pod
 
 - Submission:
-  - copy paste the output of the (1) command (i.e `kubectl get pods`) into `/Section 1 - Basics of Kubernetes/viewing-pods-and-nodes-3/get-pods.txt`
-  - copy paste the output of the (2) command (i.e `kubectl describe pods`) into `/Section 1 - Basics of Kubernetes/viewing-pods-and-nodes-3/get-pods.txt`
-  - copy paste the output of the (6) command (i.e `cat app.py`) into `/Section 1 - Basics of Kubernetes/viewing-pods-and-nodes-3/cat-app.txt`
+  - copy paste the output of the (1) command (i.e `kubectl get pods`) into `/s1/3/get-pods.txt`
+  - copy paste the output of the (2) command (i.e `kubectl describe pods`) into `/s1/3/get-pods.txt`
+  - copy paste the output of the (6) command (i.e `cat app.py`) into `/s1/3/cat-app.txt`
   - Commit all the changes
 
 ### 4) Using a Service to Expose Your App
@@ -232,9 +231,9 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
     - ![Details](/resources/4/module_04_labels.svg)
 
 - Submission:
-  - Copy paste the output of the `curl` command from part (6.2) into `/Section 1 - Basics of Kubernetes/service-and-labels-4/curl-output.txt`
-  - Copy paste the output of the `describe` command from part (7.1) into `/Section 1 - Basics of Kubernetes/service-and-labels-4/describe-deployment.txt`
-  - Copy paste the output `kubectl get pods` command from part (7.7) into `/Section 1 - Basics of Kubernetes/service-and-labels-4/pods-version-label.txt`
+  - Copy paste the output of the `curl` command from part (6.2) into `/s1/4/curl-output.txt`
+  - Copy paste the output of the `describe` command from part (7.1) into `/s1/4/describe-deployment.txt`
+  - Copy paste the output `kubectl get pods` command from part (7.7) into `/s1/4/pods-version-label.txt`
   - Commit all the changes
 
 ### 5)
@@ -269,8 +268,8 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
   - Kubernetes also supports [autoscaling](https://kubernetes.io/docs/user-guide/horizontal-pod-autoscaling/) of Pods
 
 - Submission:
-  - Copy the output of the curl loop we wrote in 4.4 into `/Section 1 - Basics of Kubernetes/scale-and-load-balacncing-5/curl-load-balance-output.text`
-  - Copy the output of the scale command in 6 into `/Section 1 - Basics of Kubernetes/scale-and-load-balacncing-5/scale-down-2-replica.text`  (try to get the pods in their different lifecycle moment (i.e 2 should be running and 2 should be terminating))
+  - Copy the output of the curl loop we wrote in 4.4 into `/s1/5/curl-load-balance-output.text`
+  - Copy the output of the scale command in 6 into `/s1/5/scale-down-2-replica.text`  (try to get the pods in their different lifecycle moment (i.e 2 should be running and 2 should be terminating))
 
 ### 6) DNS Service Discovery
 
@@ -325,7 +324,7 @@ Your task is to send a GET request to the `frontend` application from the outsid
 ** Bounus of 10 points to whomever decide to deploy on some cloud platform and send a working link to the application so we can access it remotely, you can get free 200$ on Google Cloud and Azure!
 
 - Submission:
-  - For this part take a look at the folder named `Section 2 - Final Assignment`, and lets go over it briefly so you will know what yo submit:
+  - For this part take a look at the folder named `s2`, and lets go over it briefly so you will know what you submit:
     - `app.py` - The application code we are going to run using Docker and Kuberenetes
     - `Dockerfile` - Docker file describing the container the applicaiton is going to run in
     - `test.sh` script - will be used by the testers to make sure the application is running as expected.
