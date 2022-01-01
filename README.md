@@ -7,7 +7,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 - Fork this repository or just clone it into a local folder
 - The repository have 2 folders, one for each section to follow. and subfolder for the subsections
 - At the end of each section/subsection you will be asked to take a screen shot / a small task to add to some folder to have proof that you went through the section and worked your way with the task.
-- Your final submission will be a link to the repository you forked with the commited updates. Or a zip file containing repository
+- Your final submission **on moodle** will a zip named ex5.zip that contains the folder s1, s2 after you fill them up as described in the instructions below - make sure that you read the submission example on the ex5 moodle assignment page.
 
 ## Basics of Kubernetes
 
@@ -323,7 +323,6 @@ Your task is to send a GET request to the `frontend` application from the outsid
 
 ** Bounus of 10 points to whomever decide to deploy on some cloud platform and send a working link to the application so we can access it remotely, you can get free 200$ on Google Cloud and Azure!
 
-- Submission:
   - For this part take a look at the folder named `s2`, and lets go over it briefly so you will know what you submit:
     - `app.py` - The application code we are going to run using Docker and Kuberenetes
     - `Dockerfile` - Docker file describing the container the applicaiton is going to run in
@@ -335,3 +334,6 @@ Your task is to send a GET request to the `frontend` application from the outsid
       - `last-name-db`
       - `frontend` - The externally expose service, simple service that uses environment variable to fetch data from its dependencies (i.e first/last name dbs)
   - Eventuall what you will need to to is update the yaml files of the different microservice to comply with the task requirements, run `./test.sh` and make sure the application works as expected! i.e returns ```Hey my name is {first name} {last name}``` with the appropriate first and last names.
+
+- Submission:
+  - The s2 complete folder filled up yaml files (3 files).  
