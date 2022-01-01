@@ -336,4 +336,4 @@ Your task is to send a GET request to the `frontend` application from the outsid
   - Eventuall what you will need to to is update the yaml files of the different microservice to comply with the task requirements, run `./test.sh` and make sure the application works as expected! i.e returns ```Hey my name is {first name} {last name}``` with the appropriate first and last names.
 
 - Submission:
-  - The s2 complete folder filled up yaml files (3 files).  
+  - The s2 complete folder with your filled up yaml files.
