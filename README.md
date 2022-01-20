@@ -169,7 +169,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 
 - Submission:
   - copy paste the output of the (1) command (i.e `kubectl get pods`) into `/s1/3/get-pods.txt`
-  - copy paste the output of the (2) command (i.e `kubectl describe pods`) into `/s1/3/get-pods.txt`
+  - copy paste the output of the (2) command (i.e `kubectl describe pods`) into `/s1/3/describe-pods.txt`
   - copy paste the output of the (6) command (i.e `cat app.py`) into `/s1/3/cat-app.txt`
   - Commit all the changes
 
