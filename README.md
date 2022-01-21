@@ -140,7 +140,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
   1) Let’s verify that the application we deployed in the previous scenario is running. We’ll use the kubectl get command and look for existing Pods - `kubectl get pods`
   2) Next, to view what containers are inside that Pod and what images are used to build those containers we run the describe pods command `kubectl describe pods` now we see here details about the Pod’s container: IP address, the ports used and a list of events related to the lifecycle of the Pod.
   3) Run `kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'` to get the pod's name - remember the previouse time we used this command? you can use the `$POD_NAME` env variable if you wish.
-  4) Anything that the application would normally send to STDOUT becomes logs for the container within the Pod. We can retrieve these logs using the kubectl logs command - `kubectl logs $POD_NAME'`
+  4) Anything that the application would normally send to STDOUT becomes logs for the container within the Pod. We can retrieve these logs using the kubectl logs command - `kubectl logs $POD_NAME`
   5) Next let’s start a bash session in the Pod’s container - run `kubectl exec -ti $POD_NAME -- bash`
   6) We have now an open console on the container where we run our NodeJS application. The source code of the app is in the server.js file run - `cat app.py`
   7) You can check that the application is up by running a curl command `curl localhost:8080`
@@ -190,7 +190,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
     3.2) Run `kubectl get services` again and
   4) Note that alternativly to the `kubectl expose` you can interact with the Kubernetes API using YAML files!
      1) Run `kubectl delete service simple`
-     2) Run `mkubectl apply -f simple/frontend-service.yaml`
+     2) Run `kubectl apply -f simple/frontend-service.yaml`
      3) Run `kubectl get services`
      4) Notice any difference?
   5) We have now a running Service called `simple`. Here we see that the Service received a unique cluster-IP, an internal port and an external-IP (the IP of the Node).
