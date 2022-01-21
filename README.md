@@ -195,8 +195,8 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
      4) Notice any difference?
   5) We have now a running Service called `simple`. Here we see that the Service received a unique cluster-IP, an internal port and an external-IP (the IP of the Node).
   6) To find out what port was opened externally (by the NodePort option) we’ll run the describe service command `kubectl describe services/simple`
-    6.1) If we were using a regular cluster with access to the Kubernetes nodes, we could have simply access the service with a `curl` command such as `curl $NODE_IP:$NODE_PORT`. But we are using local kind environment which leaves us with two options - the simple one is using port forwarding - `kubectl port-forward service/simple 8080:8080`
-    6.2) Now you can run `curl localhost:$NODE_PORT` - the `$NODE_PORT` you can find with the describe service command mentioned above.
+     1) If we were using a regular cluster with access to the Kubernetes nodes, we could have simply access the service with a `curl` command such as `curl $NODE_IP:$NODE_PORT`. But we are using local kind environment which leaves us with two options - the simple one is using port forwarding - `kubectl port-forward service/simple 8080:8080`
+     2) Now you can run `curl localhost:$NODE_PORT` - the `$NODE_PORT` you can find with the describe service command mentioned above.
   7) The Deployment created automatically a label for our Pod.
      1) With describe deployment command you can see the name of the label - `kubectl describe deployment | grep Labels`
      2) Let’s use this label to query our list of Pods. We’ll use the kubectl get pods command with -l as a parameter, followed by the label values - `kubectl get pods -l app=simple`
