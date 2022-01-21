@@ -186,8 +186,8 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
   1) Verify the application is still running run `kubectl get pods`
   2) Next, let’s list the current Services from our cluster run `kubectl get services`
   3) We have a Service called kubernetes that is created by default when kind starts its first cluster. To create a new service and expose it to external traffic we’ll use the `expose` command with `NodePort` as parameter.
-    3.1) Run `kubectl expose deployment/simple --type="NodePort" --port 8080`
-    3.2) Run `kubectl get services` again and
+     1) Run `kubectl expose deployment/simple --type="NodePort" --port 8080`
+     2) Run `kubectl get services` again and
   4) Note that alternativly to the `kubectl expose` you can interact with the Kubernetes API using YAML files!
      1) Run `kubectl delete service simple`
      2) Run `kubectl apply -f simple/frontend-service.yaml`
@@ -245,17 +245,17 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
 - Guidelines:
   1) To list your deployments use the get deployments command `kubectl get deployments`. How many replicas does your current deployment has? We should have 1 Pod!
   2) To see the ReplicaSet created by the Deployment, run `kubectl get rs`
-     2.1) DESIRED displays the desired number of replicas of the application, which you define when you create the Deployment. This is the desired state.
-     2.2) CURRENT displays how many replicas are currently running.
+     1) DESIRED displays the desired number of replicas of the application, which you define when you create the Deployment. This is the desired state.
+     2) CURRENT displays how many replicas are currently running.
   3) Next, let’s scale the Deployment to 4 replicas run `kubectl scale deployments/simple --replicas=4`
-     3.1) Run `kubectl get deployments` to see the new state of your deployment
-     3.2) Run `kubectl get pods` to see the amount of pods
+     1) Run `kubectl get deployments` to see the new state of your deployment
+     2) Run `kubectl get pods` to see the amount of pods
   4) Let’s check that the Service is load-balancing the traffic.
-     4.1) Use what you have learned from in part for and expose the service (it might already be expose)
-     4.2) Run `kubectl get services` and copy its ip address lets call it `$SCV_IP` (something like `10.96.100.242`)
-     4.3) Now, if we are using Mac or windows `kind` it is kind of hard to expose cluster nodes and services, so what we will do is just open bash to a pod like we learned before in part 3 section 5 (exec command)
-     4.4) once you managed to open bash on some pod, run the following bash loop `for i in $(seq 1 20); do` click enter and type `curl $SCV_IP:8080` where `$SCV_IP` is the IP you copied in 4.2, click enter again, type `done` and click enter again.
-     4.5) You shall us hiting a different Pod with every request.
+     1) Use what you have learned from in part for and expose the service (it might already be expose)
+     2) Run `kubectl get services` and copy its ip address lets call it `$SCV_IP` (something like `10.96.100.242`)
+     3) Now, if we are using Mac or windows `kind` it is kind of hard to expose cluster nodes and services, so what we will do is just open bash to a pod like we learned before in part 3 section 5 (exec command)
+     4) once you managed to open bash on some pod, run the following bash loop `for i in $(seq 1 20); do` click enter and type `curl $SCV_IP:8080` where `$SCV_IP` is the IP you copied in 4.2, click enter again, type `done` and click enter again.
+     5) You shall us hiting a different Pod with every request.
   5) Run `kubectl scale deployments/simple --replicas=2` to scale thr replica count down.
   6) Run `kubectl get pods
   7) ` to see the new amount of pods
@@ -295,8 +295,7 @@ A base repository for the the Kubernetes HW of the Advance Networking Course in 
   5) Run `make deploy-service-discovery`
   6) Run `kubectl get svc,pods,deployments`
      1) How does the output looks?
-  7) Run `
-  8) kubectl port-forward service/sd-front 8080:8080`
+  7) Run `kubectl port-forward service/sd-front 8080:8080`
 
 - Suammry:
   - We have learned how different microservices can communicate with each other in a Kubernetes Cluster
@@ -322,17 +321,17 @@ Your task is to send a GET request to the `frontend` application from the outsid
 
 ** Bounus of 10 points to whomever decide to deploy on some cloud platform and send a working link to the application so we can access it remotely, you can get free 200$ on Google Cloud and Azure!
 
-  - For this part take a look at the folder named `s2`, and lets go over it briefly so you will know what you submit:
-    - `app.py` - The application code we are going to run using Docker and Kuberenetes
-    - `Dockerfile` - Docker file describing the container the applicaiton is going to run in
-    - `test.sh` script - will be used by the testers to make sure the application is running as expected.
-    - `Makefile` - A basic build script, please take the time to explorer the file and understand how it works, because eventually our tests going to run it - using the `test.sh` script.
-    - `requirements.txt` - A requirements file is a list of all of a project’s dependencies, [read](https://realpython.com/lessons/using-requirement-files/) more about python dependencies
-    - `kube` directory
-      - `first-name-db`
-      - `last-name-db`
-      - `frontend` - The externally expose service, simple service that uses environment variable to fetch data from its dependencies (i.e first/last name dbs)
-  - Eventuall what you will need to to is update the yaml files of the different microservice to comply with the task requirements, run `./test.sh` and make sure the application works as expected! i.e returns ```Hey my name is {first name} {last name}``` with the appropriate first and last names.
+- For this part take a look at the folder named `s2`, and lets go over it briefly so you will know what you submit:
+  - `app.py` - The application code we are going to run using Docker and Kuberenetes
+  - `Dockerfile` - Docker file describing the container the applicaiton is going to run in
+  - `test.sh` script - will be used by the testers to make sure the application is running as expected.
+  - `Makefile` - A basic build script, please take the time to explorer the file and understand how it works, because eventually our tests going to run it - using the `test.sh` script.
+  - `requirements.txt` - A requirements file is a list of all of a project’s dependencies, [read](https://realpython.com/lessons/using-requirement-files/) more about python dependencies
+  - `kube` directory
+    - `first-name-db`
+    - `last-name-db`
+    - `frontend` - The externally expose service, simple service that uses environment variable to fetch data from its dependencies (i.e first/last name dbs)
+- Eventuall what you will need to to is update the yaml files of the different microservice to comply with the task requirements, run `./test.sh` and make sure the application works as expected! i.e returns ```Hey my name is {first name} {last name}``` with the appropriate first and last names.
 
 - Submission:
   - The s2 complete folder with your filled up yaml files.
